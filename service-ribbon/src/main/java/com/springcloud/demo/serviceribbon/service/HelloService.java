@@ -10,7 +10,7 @@ public class HelloService {
     @Autowired
     RestTemplate restTemplate;
 
-    public String say(String word) {
+    public String sayViaRibbonClient(String word) {
         return restTemplate.getForObject("http://EUREKA-CLIENT/say?word=" + word, String.class);
     }
 }

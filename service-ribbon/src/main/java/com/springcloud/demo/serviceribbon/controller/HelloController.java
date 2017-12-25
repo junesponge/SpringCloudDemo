@@ -12,9 +12,9 @@ public class HelloController {
     @Autowired
     HelloService helloService;
 
-    @RequestMapping(value = "/say")
-    public String say(@RequestParam String word) {
-        return helloService.say(word);
+    @RequestMapping(value = "/sayViaRibbonClient")
+    public String sayViaRibbonClient(@RequestParam String word) {
+        return helloService.sayViaRibbonClient(word);
     }
 
 }
