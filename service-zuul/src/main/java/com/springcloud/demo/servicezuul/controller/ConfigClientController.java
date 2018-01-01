@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ConfigClientController {
 
-    @Value("${service-zuul.appName}")
+    @Value("${appName}")
     private String appName;
 
     @RequestMapping("/appName")

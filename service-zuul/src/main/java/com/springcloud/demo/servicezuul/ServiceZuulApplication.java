@@ -18,6 +18,6 @@ public class ServiceZuulApplication {
 
 	@Autowired
 	void setEnviroment(Environment env) {
-		System.out.println("service-zuul from env: " + env.getProperty("service-zuul.appName"));
+		System.out.println("service-zuul from env: " + env.getProperty("appName"));
 	}
 }
