@@ -36,7 +36,7 @@ public class EurekaClient02Application {
 
 	@RequestMapping("/say")
 	public String say(@RequestParam String word) {
-		return "I say '" + word + "' from port:" + port;
+		return "Client02 say '" + word + "' from port:" + port;
 	}
 
 	@RequestMapping("/callClient01")
