@@ -14,6 +14,6 @@ public class ConfigClientApplication {
 
 	@Autowired
 	void setEnviroment(Environment env) {
-		System.out.println("service-zuul from env: " + env.getProperty("service-zuul.appName"));
+		System.out.println("config-client from env: " + env.getProperty("appName"));
 	}
 }
