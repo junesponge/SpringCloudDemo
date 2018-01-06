@@ -27,31 +27,31 @@ import java.io.InputStreamReader;
 @RestController
 public class EurekaClient02Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaClient02Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EurekaClient02Application.class, args);
+    }
 
-	@Value("${server.port}")
-	String port;
+    @Value("${server.port}")
+    String port;
 
-	@RequestMapping("/say")
-	public String say(@RequestParam String word) {
-		return "Client02 say '" + word + "' from port:" + port;
-	}
+    @RequestMapping("/say")
+    public String say(@RequestParam String word) {
+        return "Client02 say '" + word + "' from port:" + port;
+    }
 
-	@RequestMapping("/callClient01")
-	public String callClient01(@RequestParam String word) throws IOException {
-		HttpClient httpClient = HttpClients.createDefault();
-		HttpResponse response = httpClient.execute(new HttpGet("http://localhost:8762/request?param=" + word));
-		// 获取返回消息
-		BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-		StringBuffer sb = new StringBuffer("");
-		String line = "";
-		String NL = System.getProperty("line.separator");
-		while ((line = in.readLine()) != null) {
-			sb.append(line + NL);
-		}
-		in.close();
-		return sb.toString();
-	}
+    @RequestMapping("/callClient01")
+    public String callClient01(@RequestParam String word) throws IOException {
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpResponse response = httpClient.execute(new HttpGet("http://localhost:8762/request?param=" + word));
+        // 获取返回消息
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+        String NL = System.getProperty("line.separator");
+        while ((line = in.readLine()) != null) {
+            sb.append(line + NL);
+        }
+        in.close();
+        return sb.toString();
+    }
 }
