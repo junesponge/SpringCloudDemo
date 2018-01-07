@@ -21,7 +21,8 @@ public class HelloController {
     private String appName;
 
     @RequestMapping("/appName")
-    public String driverClass() {
+    public String appName() {
+        System.out.println("appName : " + appName);
         return appName;
     }
 
